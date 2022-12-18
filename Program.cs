@@ -4,41 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace perfect_number
+namespace prime_number
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-           
-                Console.Write("enter the firt number: ");
-               int number1=int.Parse(Console.ReadLine());
-            Console.Write("enter the second number: ");
+            int i, j;
 
-            int number2 =int.Parse(Console.ReadLine());
-            Console.WriteLine("The perfect number between " + number1 + " and " + number2 + " is :");
+            bool result = true;
 
-            for (int i = number1; i < number2; i++)
-                {
-                    if (Perfect(i) && i!=0)
-                        Console.WriteLine(i );
-                }
+            Console.Write("Inter the first number :");
+            int num1 = int.Parse(Console.ReadLine());
 
-                Console.ReadLine();
-            }
+            Console.Write("Inter the second number :");
+            int num2 = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("The prime number between " + num1 + " and " + num2 + " is : ");
 
-            static bool Perfect(int number)
+            for (i = num1; i <= num2; i++)
             {
-                int sum = 0;
-                for (int j = 1; j < number; j++)
+                for (j = 2; j < i; j++)
                 {
-                    if (number % j == 0)
-                        sum += j;
-                }
+                    if (i % j == 0)
+                        result = false;
 
-                return sum == number;
-            
+
+                }
+                if (result == true && i != 1 && i != 0)
+                {
+                    Console.WriteLine(i);
+                }
+                result = true;
+            }
         }
-    }
+    } 
 }
